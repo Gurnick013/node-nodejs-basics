@@ -1,5 +1,9 @@
+import { env } from 'node:process';
+
 const parseEnv = () => {
-    // Write your code here 
+    console.log(Object.entries(env).reduce((prev, [key, value]) => key.startsWith('RSS_')
+        ? [...prev, `${key}=${value}`]
+        : prev, []).join('; '));
 };
 
 parseEnv();
